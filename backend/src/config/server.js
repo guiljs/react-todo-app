@@ -1,4 +1,4 @@
-const port = 3003
+const port = 3004
 
 const bodyParser = require('body-parser')
 const express = require('express')
@@ -8,5 +8,5 @@ server.use(bodyParser.urlencoded({ extended: true }))
 server.use(bodyParser.json())
 
 server.listen(port, function(){
-    console.log('BACKEND está rodando na porta 3000')
+    console.log('BACKEND está rodando na porta ' +port)
 })
