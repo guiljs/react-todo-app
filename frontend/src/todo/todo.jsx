@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 import PageHeader from '../template/pageHeader'
 import TodoForm from './todoForm'
 import TodoList from './todoList'
+
+const URL = 'http://localhost:3004/api/todos' //Meu backend está na porta 3004 e não na 3003 como a do professor
 
 export default class Todo extends Component {
 
@@ -19,7 +22,9 @@ export default class Todo extends Component {
     }
 
     handleAdd() {
-        console.log(this.state.description)
+        const description = this.state.description
+        axios.post(URL, { description })
+            .then(resp => console.log('Funcionou a requisição'))
     }
     render() {
         return (
