@@ -12,3 +12,11 @@ export const search = () => {
         payload: request
     }
 }
+
+export const add = (description) => {
+    const request = axios.post(URL, { description })//No ES2015 é igual a description:description se a variável tem o mesmo nome ele já associa
+    return {
+        type: 'TODO_ADDED',
+        payload: request
+    }
+}
