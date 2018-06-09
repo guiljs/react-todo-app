@@ -14,9 +14,9 @@ export const search = () => {
 }
 
 export const add = (description) => {
-    const request = axios.post(URL, { description })//No ES2015 é igual a description:description se a variável tem o mesmo nome ele já associa
-    return [
-        { type: 'TODO_ADDED', payload: request },
-        search()
-    ]
+    return dispatch => {
+        axios.post(URL, { description })
+            .then(resp => dispatch({ type: 'TODO_ADDED', payload: resp.data }))
+            .then(resp => dispatch(search()))
+    }
 }
