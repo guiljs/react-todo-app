@@ -11,10 +11,6 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, list: action.payload.data }
         case 'TODO_ADDED':
             return { ...state, description: '' }
-        // case 'TODO_MARKED_AS_DONE':
-        //     return { ...state, done: true }
-        // case 'TODO_MARKED_AS_PENDING':
-        //     return { ...state, done: false }
         default:
             return state
     }
